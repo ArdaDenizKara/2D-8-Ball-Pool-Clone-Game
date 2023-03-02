@@ -4,19 +4,15 @@ using UnityEngine;
 
 public class Collisions : MonoBehaviour
 {
-    
-
+    #region Fields
     DragandShoot dragandshoot;
     [SerializeField]
     BallManager ballManager;
-
     Ball balls;
     bool playerWon;
     bool gameEnded = false;
-
-
-
-
+    #endregion
+    #region Functions
     private void Start()
     {
         
@@ -77,15 +73,11 @@ public class Collisions : MonoBehaviour
             
         }
 
-
         if (collision.CompareTag("WhiteBall"))
         {
             ballManager.ResetWhiteBallPosition();
         }
-
         GameOver();
-
-
     }
     private void GameOver()
     {
@@ -106,16 +98,8 @@ public class Collisions : MonoBehaviour
         else if (GameManager.Instance.gameplayState == Generic.Enums.GamePlayState.OpponentTurn && ballManager.blackBallList.Count == 0 && ballManager.ballsonSceneList.Count >= 1)
         {
             GameManager.Instance.PlayerWon();
-        }
-
-       
-
-        
-        
+        }       
     }
-
-
-    
     public void AddPlayerBallsSolid()
     {
         foreach (GameObject solidBall in ballManager.solidBallList)
@@ -161,5 +145,5 @@ public class Collisions : MonoBehaviour
             ballManager.playerBalls.Add(stripedBall);
         }
     }
-    
+    #endregion
 }
