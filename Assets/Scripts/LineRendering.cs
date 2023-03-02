@@ -5,7 +5,10 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class LineRendering : MonoBehaviour
 {
+    #region Fields
     public LineRenderer lineRender;
+    #endregion
+    #region Functions
     private void Awake()
     {
         lineRender = GetComponent<LineRenderer>();
@@ -22,4 +25,5 @@ public class LineRendering : MonoBehaviour
     {
         lineRender.positionCount = 0;
     }
+    #endregion
 }
