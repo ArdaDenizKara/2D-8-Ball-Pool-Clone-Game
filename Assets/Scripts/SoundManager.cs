@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class SoundManager : MonoBehaviour
 {
+    #region Fields
     public static SoundManager Instance;
     [SerializeField]
     private AudioSource  effectSource;
     public AudioClip ballHitEffect;
+    #endregion
+    #region Functions
     private void Awake()
     {
         if (Instance==null)
@@ -25,4 +27,5 @@ public class SoundManager : MonoBehaviour
         effectSource.clip = ballHitEffect;
         effectSource.Play();
     }
+    #endregion
 }
